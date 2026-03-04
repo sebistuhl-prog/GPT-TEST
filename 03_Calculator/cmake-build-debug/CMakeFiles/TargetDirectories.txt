@@ -1,0 +1,5 @@
+C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/03_Calculator.dir
+C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/03_Calculator_autogen_timestamp_deps.dir
+C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/03_Calculator_autogen.dir

@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug",
+  "command": "C:\\Users\\sebas\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -isystem C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/03_Calculator_autogen/include -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtGui -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\03_Calculator.dir\\03_Calculator_autogen\\mocs_compilation.cpp.obj -c C:\\Users\\sebas\\Desktop\\Schule\\Faecher\\FSST\\C++_Programme\\202526\\03_Calculator\\cmake-build-debug\\03_Calculator_autogen\\mocs_compilation.cpp",
+  "file": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/03_Calculator_autogen/mocs_compilation.cpp",
+  "output": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/03_Calculator.dir/03_Calculator_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug",
+  "command": "C:\\Users\\sebas\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -isystem C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/03_Calculator_autogen/include -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtGui -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\03_Calculator.dir\\main.cpp.obj -c C:\\Users\\sebas\\Desktop\\Schule\\Faecher\\FSST\\C++_Programme\\202526\\03_Calculator\\main.cpp",
+  "file": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/main.cpp",
+  "output": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/03_Calculator.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug",
+  "command": "C:\\Users\\sebas\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -isystem C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/03_Calculator_autogen/include -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtGui -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\03_Calculator.dir\\calculator.cpp.obj -c C:\\Users\\sebas\\Desktop\\Schule\\Faecher\\FSST\\C++_Programme\\202526\\03_Calculator\\calculator.cpp",
+  "file": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/calculator.cpp",
+  "output": "C:/Users/sebas/Desktop/Schule/Faecher/FSST/C++_Programme/202526/03_Calculator/cmake-build-debug/CMakeFiles/03_Calculator.dir/calculator.cpp.obj"
+}
+]
