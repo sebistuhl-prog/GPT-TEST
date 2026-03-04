@@ -23,7 +23,7 @@ public:
 private:
     Ui::Calculator *ui;
 
-    int numA, numB;
+    std::complex<double> numA, numB;
 
     enum operation {Add,Sub,Mul,Div,None }oper;
 
@@ -45,6 +45,7 @@ private slots:
         void on_pushButton_sum_clicked();
         void on_pushButton_sub_clicked();
         void on_pushButton_cle_clicked();
+        void on_pushButton_div_2_clicked();
 
 };
 
