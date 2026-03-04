@@ -6,14 +6,131 @@
 
 #include "calculator.h"
 #include "ui_Calculator.h"
-#include "complex.h"
-using namespace std::complex_literals;
+#include <QString>
+#include <QLineEdit>
+namespace {
+QString stripEnclosingParentheses(QString value)
+{
+    value = value.trimmed();
+    while (value.size() >= 2 && value.front() == '(' && value.back() == ')') {
+        int depth = 0;
+        bool wrapsWhole = true;
+        for (int i = 0; i < value.size(); ++i) {
+            if (value[i] == '(') {
+                ++depth;
+            } else if (value[i] == ')') {
+                --depth;
+                if (depth < 0) {
+                    wrapsWhole = false;
+                    break;
+                }
+                if (depth == 0 && i != value.size() - 1) {
+                    wrapsWhole = false;
+                    break;
+                }
+            }
+        }
+
+        if (!wrapsWhole || depth != 0) {
+            break;
+        }
+
+        value = value.mid(1, value.size() - 2).trimmed();
+    }
+
+    return value;
+}
+
+std::complex<double> parseComplex(const QString &text)
+{
+    QString cleaned = stripEnclosingParentheses(text);
+    cleaned.remove(' ');
+
+    if (cleaned.isEmpty()) {
+        return std::complex<double>(0.0, 0.0);
+    }
+
+    if (!cleaned.contains('j')) {
+        return std::complex<double>(cleaned.toDouble(), 0.0);
+    }
+
+    if (cleaned == "j") {
+        return std::complex<double>(0.0, 1.0);
+    }
+    if (cleaned == "-j") {
+        return std::complex<double>(0.0, -1.0);
+    }
+
+    QString withoutJ = cleaned;
+    withoutJ.chop(1);
+
+    int splitIndex = -1;
+    for (int i = 1; i < withoutJ.size(); ++i) {
+        if (withoutJ[i] == '+' || withoutJ[i] == '-') {
+            splitIndex = i;
+        }
+    }
+
+    if (splitIndex == -1) {
+        QString imagPartText = withoutJ;
+        if (imagPartText == "+" || imagPartText.isEmpty()) {
+            imagPartText = "1";
+        } else if (imagPartText == "-") {
+            imagPartText = "-1";
+        }
+        return std::complex<double>(0.0, imagPartText.toDouble());
+    }
+
+    const QString realPartText = stripEnclosingParentheses(withoutJ.left(splitIndex));
+    const double realPart = realPartText.toDouble();
+    QString imagPartText = stripEnclosingParentheses(withoutJ.mid(splitIndex));
+    if (imagPartText == "+") {
+        imagPartText = "1";
+    } else if (imagPartText == "-") {
+        imagPartText = "-1";
+    }
+
+    return std::complex<double>(realPart, imagPartText.toDouble());
+}
+
+QString formatComplex(const std::complex<double> &value)
+{
+    const double real = value.real();
+    const double imag = value.imag();
+
+    if (imag == 0.0) {
+        return QString::number(real);
+    }
+
+    if (real == 0.0) {
+        return QString::number(imag) + "j";
+    }
+
+    const QString imagPrefix = imag < 0.0 ? "" : "+";
+    return QString::number(real) + imagPrefix + QString::number(imag) + "j";
+}
+
+void appendDigit(QLineEdit *display, int digit)
+{
+    QString text = display->text();
+    if (text == "0") {
+        display->setText(QString::number(digit));
+        return;
+    }
+
+    text += QString::number(digit);
+    display->setText(text);
+}
+}
 
 
 Calculator::Calculator(QWidget *parent) :
     QWidget(parent), ui(new Ui::Calculator)
 {
     ui->setupUi(this);
+    oper = None;
+    numA = std::complex<double>(0.0, 0.0);
+    numB = std::complex<double>(0.0, 0.0);
 }
 
 Calculator::~Calculator() {
@@ -22,96 +139,72 @@ Calculator::~Calculator() {
 
 void Calculator::on_pushButton_0_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 0);
 }
 void Calculator::on_pushButton_1_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 1;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 1);
 }
 void Calculator::on_pushButton_2_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 2;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 2);
 }
 void Calculator::on_pushButton_3_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 3;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 3);
 }
 void Calculator::on_pushButton_4_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 4;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 4);
 }
 void Calculator::on_pushButton_5_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 5;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 5);
 }
 void Calculator::on_pushButton_6_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 6;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 6);
 }
 void Calculator::on_pushButton_7_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 7;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 7);
 }
 void Calculator::on_pushButton_8_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 8;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 8);
 }
 void Calculator::on_pushButton_9_clicked()
 {
-    int number;
-    number = ui->lcdNumber->text().toInt();
-    number = number * 10 + 9;
-    ui->lcdNumber->setText(QString::number(number));
+    appendDigit(ui->lcdNumber, 9);
 }
 void Calculator::on_pushButton_del_clicked()
 {
-    int number = ui->lcdNumber->text().toInt();
-    number = number / 10;
-    ui->lcdNumber->setText(QString::number(number));
+    QString text = ui->lcdNumber->text();
+    if (text.isEmpty() || text == "0") {
+        return;
+    }
+    text.chop(1);
+    if (text.isEmpty()) {
+        text = "0";
+    }
+    ui->lcdNumber->setText(text);
 }
 void Calculator::on_pushButton_res_clicked()
 {
-    numB = ui->lcdNumber->text().toInt();
+    numB = parseComplex(ui->lcdNumber->text());
     switch (oper)
     {
         case Add:
-            ui->lcdNumber->setText(QString::number(numA + numB));
+            ui->lcdNumber->setText(formatComplex(numA + numB));
         break;
         case Sub:
-            ui->lcdNumber->setText(QString::number(numA - numB));
+            ui->lcdNumber->setText(formatComplex(numA - numB));
         break;
         case Mul:
-            ui->lcdNumber->setText(QString::number(numA * numB));
+            ui->lcdNumber->setText(formatComplex(numA * numB));
         break;
         case Div:
-            ui->lcdNumber->setText(QString::number(numA / numB));
+            ui->lcdNumber->setText(formatComplex(numA / numB));
         break;
         default:
 
@@ -122,25 +215,25 @@ void Calculator::on_pushButton_res_clicked()
 }
 void Calculator::on_pushButton_div_clicked()
 {
-    this->numA = ui->lcdNumber->text().toInt();
+    this->numA = parseComplex(ui->lcdNumber->text());
     ui->lcdNumber->setText(QString::number(0));
     oper = Div;
 }
 void Calculator::on_pushButton_mult_clicked()
 {
-    this->numA = ui->lcdNumber->text().toInt();
+    this->numA = parseComplex(ui->lcdNumber->text());
     ui->lcdNumber->setText(QString::number(0));
     oper = Mul;
 }
 void Calculator::on_pushButton_sum_clicked()
 {
-    this->numA = ui->lcdNumber->text().toInt();
+    this->numA = parseComplex(ui->lcdNumber->text());
     ui->lcdNumber->setText(QString::number(0));
     oper = Add;
 }
 void Calculator::on_pushButton_sub_clicked()
 {
-    this->numA = ui->lcdNumber->text().toInt();
+    this->numA = parseComplex(ui->lcdNumber->text());
     ui->lcdNumber->setText(QString::number(0));
     oper = Sub;
 }
@@ -148,7 +241,20 @@ void Calculator::on_pushButton_sub_clicked()
 void Calculator::on_pushButton_cle_clicked()
 {
     ui->lcdNumber->setText(QString::number(0));
-    numA = 0;
-    numB = 0;
+    numA = std::complex<double>(0.0, 0.0);
+    numB = std::complex<double>(0.0, 0.0);
     oper = None;
+}
+
+void Calculator::on_pushButton_div_2_clicked()
+{
+    QString text = ui->lcdNumber->text();
+    if (!text.contains('j')) {
+        if (text == "0") {
+            text = "1j";
+        } else {
+            text += "j";
+        }
+        ui->lcdNumber->setText(text);
+    }
 }
