@@ -219,49 +219,6 @@ h2 {
   padding: 72px 0;
 }
 
-.timetable-section {
-  width: min(1120px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 72px 0;
-  border-top: 1px solid var(--line);
-}
-
-.section-heading {
-  max-width: 680px;
-  margin-bottom: 24px;
-}
-
-.timetable-frame-shell {
-  height: min(760px, 78vh);
-  min-height: 560px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.timetable-frame {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  background: var(--surface);
-}
-
-.timetable-fallback {
-  margin: 14px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.timetable-fallback a {
-  color: var(--primary-dark);
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .accent-section {
   border-top: 1px solid var(--line);
 }
@@ -298,11 +255,6 @@ h2 {
   .hero-panel {
     order: -1;
   }
-
-  .timetable-frame-shell {
-    height: 680px;
-    min-height: 520px;
-  }
 }
 
 @media (max-width: 440px) {
@@ -322,10 +274,5 @@ h2 {
   .panel-card {
     margin: 16px;
     padding: 20px;
-  }
-
-  .timetable-frame-shell {
-    height: 620px;
-    min-height: 480px;
   }
 }
