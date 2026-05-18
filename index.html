@@ -13,11 +13,7 @@
       <ul class="nav-links">
         <li><a href="#start">Start</a></li>
         <li><a href="#info">Info</a></li>
-        <li>
-          <a href="https://htl-hl.webuntis.com/WebUntis?school=htl-hl#/basic/timetablePublic/my-student?date=2026-05-18&amp;entityId=7376" target="_blank" rel="noopener">
-            Stundenplan
-          </a>
-        </li>
+        <li><a href="#stundenplan">Stundenplan</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
@@ -54,6 +50,27 @@
       <p>
         Die Seite besteht aus HTML, externem CSS und JavaScript. Sie passt sich
         automatisch an unterschiedliche Bildschirmgr&ouml;&szlig;en an.
+      </p>
+    </section>
+
+    <section id="stundenplan" class="timetable-section">
+      <div class="section-heading">
+        <p class="eyebrow">WebUntis</p>
+        <h2>Stundenplan</h2>
+      </div>
+      <div class="timetable-frame-shell">
+        <iframe
+          class="timetable-frame"
+          title="WebUntis Stundenplan"
+          src="https://htl-hl.webuntis.com/WebUntis?school=htl-hl#/basic/timetablePublic/my-student?date=2026-05-18&amp;entityId=7376"
+          loading="lazy">
+        </iframe>
+      </div>
+      <p class="timetable-fallback">
+        Falls der Stundenplan nicht geladen wird:
+        <a href="https://htl-hl.webuntis.com/WebUntis?school=htl-hl#/basic/timetablePublic/my-student?date=2026-05-18&amp;entityId=7376" target="_blank" rel="noopener">
+          WebUntis direkt &ouml;ffnen
+        </a>.
       </p>
     </section>
 
