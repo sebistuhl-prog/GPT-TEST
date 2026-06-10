@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ergebnisse | OPV I</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>OPV I - Operationsverstärker</h1>
+        <p>Elektroniklabor-Projekt der 3AHEL an der HTBL Hollabrunn</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="aufgabenstellung.html">Aufgabenstellung</a>
+        <a href="loesungsweg.html">Lösungsweg</a>
+        <a href="ergebnisse.html">Ergebnisse</a>
+        <a href="team.html">Team</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Ergebnisse</h2>
+            <p>
+                Die Messung zeigte, dass die praktische Kennlinie grundsätzlich zur Theorie passt.
+                Der OPV erreicht jedoch nicht die volle Versorgungsspannung am Ausgang, sondern geht vorher in Sättigung.
+            </p>
+            <img class="diagramm" src="img/kennlinie_opv.png" alt="Kennlinie des OPV µA741">
+        </section>
+
+        <section>
+            <h2>Auswertung der Kennlinie</h2>
+            <table>
+                <tr>
+                    <th>Bereich</th>
+                    <th>Beobachtung</th>
+                </tr>
+                <tr>
+                    <td>Linearer Bereich</td>
+                    <td>Die Ausgangsspannung folgt ungefähr der Eingangsspannung multipliziert mit der Verstärkung.</td>
+                </tr>
+                <tr>
+                    <td>Negative Sättigung</td>
+                    <td>Bei negativer Ausgangsspannung liegt die Grenze ungefähr bei -10 V.</td>
+                </tr>
+                <tr>
+                    <td>Positive Sättigung</td>
+                    <td>Bei positiver Ausgangsspannung liegt die Grenze ungefähr bei +11 V.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Sinusmessung</h2>
+            <p>
+                Bei einem Sinuseingangssignal mit 1 kHz wurde das Ausgangssignal verstärkt.
+                Bei höherer Amplitude war eine Abflachung der Sinuskurve sichtbar. Das bedeutet, dass der OPV in die Sättigung geraten ist.
+                Die Frequenz blieb dabei gleich.
+            </p>
+        </section>
+
+        <section>
+            <h2>Schlussfolgerung</h2>
+            <p>
+                Die Übung wurde erfolgreich abgeschlossen. Man erkennt deutlich, dass ein realer OPV begrenzte
+                Ausgangsspannungen besitzt und bei zu großer Eingangsspannung nicht mehr sauber linear verstärkt.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 OPV I | HTBL Hollabrunn | 3AHEL</p>
+    </footer>
+</body>
+</html>
+

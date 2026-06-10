@@ -1,70 +1,159 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meine Testwebsite</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zentrale Index-Website fuer FSST HTML-Projekte mit Zugriff auf alle Projekt-Homepages.">
+    <meta name="theme-color" content="#0b3940">
+    <title>FSST Projekt-Homepages</title>
+    <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="navbar" aria-label="Hauptnavigation">
-      <a class="brand" href="#start">Testwebsite</a>
-      <ul class="nav-links">
-        <li><a href="#start">Start</a></li>
-        <li><a href="#info">Info</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="start" class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Willkommen</p>
-        <h1>Meine Testwebsite</h1>
-        <p class="intro">
-          Sch&ouml;n, dass du da bist. Diese kleine Website ist eine einfache,
-          moderne Demo f&uuml;r GitHub Pages.
-        </p>
-        <button id="welcomeButton" class="button" type="button">
-          Klick mich
-        </button>
-      </div>
-      <div class="hero-panel" aria-label="Website Vorschau">
-        <div class="panel-topbar">
-          <span></span>
-          <span></span>
-          <span></span>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="FSST Projekt-Homepages">
+                <span>FSST</span>
+                <strong>Projekt-Homepages</strong>
+            </a>
+            <nav aria-label="Hauptnavigation">
+                <a href="#projekte">Projekte</a>
+                <a href="#struktur">Struktur</a>
+                <a href="#infos">Infos</a>
+            </nav>
         </div>
-        <div class="panel-card">
-          <strong>Online bereit</strong>
-          <p>Statisch, responsiv und schnell geladen.</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">HTBL Hollabrunn &middot; FSST</p>
+                    <h1>Zentrale Website f&uuml;r alle HTML-Projekte.</h1>
+                    <p class="lead">
+                        Diese Index-Seite sammelt die Projekt-Homepages sauber an einem Ort.
+                        Jede Website bleibt in einem eigenen Unterordner und kann direkt &uuml;ber
+                        GitHub Pages aufgerufen werden.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="projects/opv-professional/index.html">Professionelle OPV-Seite</a>
+                        <a class="button secondary" href="#projekte">Alle Projekte ansehen</a>
+                    </div>
+                </div>
+                <aside class="hero-panel" aria-label="Projektstatus">
+                    <h2>Aktueller Stand</h2>
+                    <dl>
+                        <div><dt>Projektanzahl</dt><dd>2</dd></div>
+                        <div><dt>Hauptprojekt</dt><dd>OPV I</dd></div>
+                        <div><dt>Status</dt><dd>Online bereit</dd></div>
+                        <div><dt>Hosting</dt><dd>GitHub Pages</dd></div>
+                    </dl>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="projekte">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Projekt&uuml;bersicht</p>
+                    <h2>Verf&uuml;gbare Homepages</h2>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card featured">
+                        <div class="card-topline">
+                            <span class="tag">Empfohlen</span>
+                            <span>OPV I</span>
+                        </div>
+                        <h3>OPV I - professionelle Version</h3>
+                        <p>
+                            Umfangreiche Projekt-Homepage mit Dark Mode, Suche, OPV-Rechner,
+                            Messwertfilter, Tabellen, Bild-Zoom, Druckansicht und responsivem Layout.
+                        </p>
+                        <ul>
+                            <li>Modernes Design und klare Struktur</li>
+                            <li>Interaktive Werkzeuge und Einstellungen</li>
+                            <li>Optimiert f&uuml;r Desktop und Smartphone</li>
+                        </ul>
+                        <a class="button primary" href="projects/opv-professional/index.html">Projekt &ouml;ffnen</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="card-topline">
+                            <span class="tag muted">Original</span>
+                            <span>OPV I</span>
+                        </div>
+                        <h3>OPV I - erste Version</h3>
+                        <p>
+                            Die urspr&uuml;ngliche Projekt-Homepage mit Startseite, Aufgabenstellung,
+                            L&ouml;sungsweg, Ergebnissen und Teamseite.
+                        </p>
+                        <ul>
+                            <li>Klassische Mehrseiten-Website</li>
+                            <li>Originaler Projektinhalt</li>
+                            <li>Direkter Vergleich zur erweiterten Version</li>
+                        </ul>
+                        <a class="button secondary-on-light" href="projects/opv-original/index.html">Projekt &ouml;ffnen</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted" id="struktur">
+            <div class="container split">
+                <div>
+                    <p class="eyebrow">Ordnersystem</p>
+                    <h2>Sauber getrennt f&uuml;r GitHub Pages</h2>
+                    <p>
+                        Die Startseite liegt im Hauptordner. Einzelne Projekte liegen unter
+                        <strong>projects/</strong>, damit sp&auml;ter weitere Homepages einfach
+                        erg&auml;nzt werden k&ouml;nnen.
+                    </p>
+                </div>
+                <pre class="folder-tree" aria-label="Ordnerstruktur"><code>/
+├── index.html
+├── assets/
+│   └── site.css
+└── projects/
+    ├── opv-original/
+    │   └── index.html
+    └── opv-professional/
+        └── index.html</code></pre>
+            </div>
+        </section>
+
+        <section class="section" id="infos">
+            <div class="container info-grid">
+                <article>
+                    <h3>Warum diese Struktur?</h3>
+                    <p>
+                        GitHub Pages kann direkt aus dem Hauptbranch ver&ouml;ffentlichen.
+                        Die Index-Seite ist der Einstiegspunkt, die Projektordner enthalten
+                        die eigentlichen Websites.
+                    </p>
+                </article>
+                <article>
+                    <h3>Erweiterbar</h3>
+                    <p>
+                        Neue Projekte k&ouml;nnen sp&auml;ter einfach als weiterer Unterordner in
+                        <strong>projects/</strong> hinzugef&uuml;gt und auf dieser Seite verlinkt werden.
+                    </p>
+                </article>
+                <article>
+                    <h3>Direkte Links</h3>
+                    <p>
+                        Jede Homepage kann direkt verlinkt werden, bleibt aber trotzdem &uuml;ber
+                        diese zentrale &Uuml;bersicht erreichbar.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 FSST &middot; HTML-Projekte</p>
+            <a href="projects/opv-professional/index.html">Zur neuesten Homepage</a>
         </div>
-      </div>
-    </section>
-
-    <section id="info" class="content-section">
-      <h2>Kleine Demo, klare Struktur</h2>
-      <p>
-        Die Seite besteht aus HTML, externem CSS und JavaScript. Sie passt sich
-        automatisch an unterschiedliche Bildschirmgr&ouml;&szlig;en an.
-      </p>
-    </section>
-
-    <section id="kontakt" class="content-section accent-section">
-      <h2>Bereit f&uuml;r GitHub Pages</h2>
-      <p>
-        Nach dem Push kann diese Seite direkt aus dem Repository ver&ouml;ffentlicht
-        werden.
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Erstellt mit Codex</p>
-  </footer>
-
-  <script src="script.js"></script>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lösungsweg | OPV I</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>OPV I - Operationsverstärker</h1>
+        <p>Elektroniklabor-Projekt der 3AHEL an der HTBL Hollabrunn</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="aufgabenstellung.html">Aufgabenstellung</a>
+        <a href="loesungsweg.html">Lösungsweg</a>
+        <a href="ergebnisse.html">Ergebnisse</a>
+        <a href="team.html">Team</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Lösungsweg</h2>
+            <p>
+                Zuerst wurde die Verstärkerschaltung berechnet. Anschließend wurde sie auf dem Steckbrett aufgebaut
+                und mit Messgeräten überprüft. Danach wurden die Messwerte aufgenommen und ausgewertet.
+            </p>
+        </section>
+
+        <section>
+            <article>
+                <h3>Berechnung</h3>
+                <p>Für einen nichtinvertierenden Verstärker gilt:</p>
+                <p class="formel">v = 1 + R2 / R1</p>
+                <p>Bei einem gewünschten Verstärkungsfaktor von 2,8 wurde ein Widerstand angenommen und der zweite Widerstand passend dazu berechnet.</p>
+            </article>
+            <article>
+                <h3>Aufbau</h3>
+                <p>Die Schaltung wurde mit dem OPV µA741 auf einem Steckbrett aufgebaut. Danach wurden Versorgungsspannung, Eingang und Ausgang kontrolliert.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Messvorgang</h2>
+            <ol>
+                <li>Versorgungsspannung des OPV einschalten.</li>
+                <li>Eingangsspannung schrittweise verändern.</li>
+                <li>Ausgangsspannung mit dem Multimeter messen.</li>
+                <li>Messwerte in Excel eintragen.</li>
+                <li>Kennlinie aus den Messwerten erstellen.</li>
+                <li>Sinussignal mit dem Oszilloskop beobachten.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Fehlersuche</h2>
+            <p>
+                Beim ersten Aufbau traten Fehler auf. Unter anderem waren VCC+ und VCC- vertauscht und die Versorgung
+                war am Steckbrett falsch aufgebaut. Nach der Fehlersuche mit einem weiteren Multimeter konnte die
+                Schaltung korrekt in Betrieb genommen werden.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 OPV I | HTBL Hollabrunn | 3AHEL</p>
+    </footer>
+</body>
+</html>
+

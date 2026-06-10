@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professionelle Projektseite zur Laboruebung OPV I mit Kennlinie, Auswertung, Rechner und Dokumentation.">
+    <meta name="theme-color" content="#0b3940">
+    <title>Startseite | OPV I</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+<body data-page="home">
+    <div class="reading-progress" data-reading-progress></div>
+    <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="OPV I Startseite">
+                <span class="brand-mark">OPV</span>
+                <span>
+                    <strong>OPV I</strong>
+                    <small>Elektroniklabor 3AHEL</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation</span>
+            </button>
+
+            <nav class="main-nav" id="site-nav" aria-label="Hauptnavigation">
+                <a class="active" href="index.html" aria-current="page">Startseite</a>
+                <a href="aufgabenstellung.html">Aufgabenstellung</a>
+                <a href="loesungsweg.html">L&ouml;sungsweg</a>
+                <a href="ergebnisse.html">Ergebnisse</a>
+                <a href="team.html">Team</a>
+            </nav>
+
+            <div class="header-actions" aria-label="Seitenwerkzeuge">
+                <button class="tool-button" type="button" data-open-search>Suchen</button>
+                <button class="tool-button" type="button" data-open-settings>Optionen</button>
+                <button class="tool-button print-only-hide" type="button" data-print>Drucken</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="content">
+        <section class="hero hero-home">
+            <div class="container hero-content">
+                <p class="eyebrow">HTBL Hollabrunn &middot; Elektroniklabor</p>
+                <h1>
+                    <span>OPV-Verst&auml;rker</span>
+                    <span>professionell</span>
+                    <span>untersucht.</span>
+                </h1>
+                <p class="lead">
+                    Eine vollst&auml;ndige Projektseite zur Labor&uuml;bung OPV&nbsp;I: Aufgabenstellung,
+                    Dimensionierung, Messablauf, Kennlinie, Auswertung, Team und interaktive Werkzeuge.
+                </p>
+                <div class="hero-actions" aria-label="Wichtige Projektlinks">
+                    <a class="button primary" href="ergebnisse.html">Ergebnisse ansehen</a>
+                    <a class="button secondary" href="loesungsweg.html#opv-rechner">OPV-Rechner</a>
+                    <button class="button ghost" type="button" data-open-search>Projekt durchsuchen</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-light compact-section" aria-label="Projektkennzahlen">
+            <div class="container metrics-grid">
+                <article class="metric-card">
+                    <span class="metric-label">&Uuml;bung</span>
+                    <strong>OPV I</strong>
+                    <p>Nichtinvertierender Verst&auml;rker</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Soll-Verst&auml;rkung</span>
+                    <strong>2,8</strong>
+                    <p>Theoretischer Zielwert</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Bauteil</span>
+                    <strong>&micro;A741</strong>
+                    <p>Operationsverst&auml;rker</p>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-label">Status</span>
+                    <strong>Fertig</strong>
+                    <p>Messung und Auswertung</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <p class="eyebrow">Projekt&uuml;bersicht</p>
+                    <h2>Vom Steckbrett zur nachvollziehbaren Kennlinie</h2>
+                    <p>
+                        In diesem Laborprojekt wurde das Verhalten eines Operationsverst&auml;rkers untersucht.
+                        Verwendet wurde der OPV <strong>&micro;A741</strong>. Im Mittelpunkt standen die
+                        Verst&auml;rkerkennlinie und das Verhalten bei einem sinusf&ouml;rmigen Eingangssignal.
+                    </p>
+                    <p>
+                        Die Schaltung wurde auf einem Steckbrett aufgebaut, dimensioniert, gemessen und
+                        anschlie&szlig;end ausgewertet. Dabei wurde besonders auf Verst&auml;rkung,
+                        Ausgangsspannung und S&auml;ttigung geachtet.
+                    </p>
+
+                    <div class="quick-links" aria-label="Schnelleinstieg">
+                        <a href="aufgabenstellung.html">Anforderungen</a>
+                        <a href="loesungsweg.html#opv-rechner">Dimensionierung</a>
+                        <a href="ergebnisse.html#messdaten">Messdaten</a>
+                        <a href="#glossar">Glossar</a>
+                    </div>
+                </div>
+
+                <aside class="data-panel status-panel" aria-label="Projektdaten" data-reveal>
+                    <h3>Projekt-Daten</h3>
+                    <dl>
+                        <div>
+                            <dt>Klasse</dt>
+                            <dd>3AHEL</dd>
+                        </div>
+                        <div>
+                            <dt>&Uuml;bungsleiter</dt>
+                            <dd>BIGL</dd>
+                        </div>
+                        <div>
+                            <dt>Datum</dt>
+                            <dd>16.04.2026</dd>
+                        </div>
+                        <div>
+                            <dt>&Uuml;bungsplatz</dt>
+                            <dd>5</dd>
+                        </div>
+                    </dl>
+                    <div class="progress-card">
+                        <div class="progress-row">
+                            <span>Dokumentation</span>
+                            <strong>100%</strong>
+                        </div>
+                        <div class="progress-track" aria-hidden="true"><span style="width:100%"></span></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <p class="eyebrow">Kernpunkte</p>
+                    <h2>Was untersucht wurde</h2>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">01</span>
+                        <h3>Thema</h3>
+                        <p>Messung und Auswertung eines nichtinvertierenden OPV-Verst&auml;rkers mit dem &micro;A741.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">02</span>
+                        <h3>Ziel</h3>
+                        <p>Die Verst&auml;rkung von 2,8 wird praktisch &uuml;berpr&uuml;ft und die S&auml;ttigungsgrenzen werden erkannt.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">03</span>
+                        <h3>Messmittel</h3>
+                        <p>Labornetzger&auml;t, Funktionsgenerator, Oszilloskop, Multimeter und Steckbrett.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container dashboard-grid">
+                <div class="section-heading" data-reveal>
+                    <p class="eyebrow">Labor-Dashboard</p>
+                    <h2>Projekt auf einen Blick</h2>
+                </div>
+
+                <article class="dashboard-card" data-reveal>
+                    <h3>Versorgung</h3>
+                    <p class="large-value">&plusmn;12 V</p>
+                    <p>Symmetrische OPV-Versorgung vor dem Eingangssignal aktivieren.</p>
+                </article>
+                <article class="dashboard-card" data-reveal>
+                    <h3>Grenzbereich</h3>
+                    <p class="large-value">-10 V / +11 V</p>
+                    <p>Gemessene S&auml;ttigungsgrenzen des realen Ausgangs.</p>
+                </article>
+                <article class="dashboard-card" data-reveal>
+                    <h3>Sinusmessung</h3>
+                    <p class="large-value">1 kHz</p>
+                    <p>Ausgangssignal verst&auml;rkt, bei hoher Amplitude sichtbar begrenzt.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container image-feature">
+                <figure data-reveal>
+                    <button class="image-zoom" type="button" data-zoom-image="img/kennlinie_opv.png" data-zoom-alt="Kennlinie des OPV &micro;A741">
+                        <img src="img/kennlinie_opv.png" alt="Kennlinie des OPV &micro;A741">
+                    </button>
+                    <figcaption>Messkurve der OPV-Ausgangsspannung im linearen und ges&auml;ttigten Bereich.</figcaption>
+                </figure>
+                <div data-reveal>
+                    <p class="eyebrow">Ausblick</p>
+                    <h2>Das Ergebnis zeigt die Grenzen realer Bauteile</h2>
+                    <p>
+                        Die Messung best&auml;tigt das theoretische Verst&auml;rkungsverhalten im linearen Bereich.
+                        Bei zu gro&szlig;er Eingangsspannung erreicht der reale OPV jedoch seine
+                        Ausgangsgrenzen und das Signal wird sichtbar begrenzt.
+                    </p>
+                    <a class="text-link" href="ergebnisse.html">Zur detaillierten Auswertung</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="glossar">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <p class="eyebrow">Glossar</p>
+                    <h2>Wichtige Begriffe schnell erkl&auml;rt</h2>
+                    <div class="accordion" data-accordion>
+                        <details open>
+                            <summary>Operationsverst&auml;rker</summary>
+                            <p>Ein sehr empfindlicher Spannungsverst&auml;rker, der in Schaltungen durch Gegenkopplung gezielt eingestellt wird.</p>
+                        </details>
+                        <details>
+                            <summary>Nichtinvertierender Verst&auml;rker</summary>
+                            <p>Eine OPV-Grundschaltung, bei der das Ausgangssignal dieselbe Polarität wie das Eingangssignal beh&auml;lt.</p>
+                        </details>
+                        <details>
+                            <summary>S&auml;ttigung</summary>
+                            <p>Der Bereich, in dem der OPV die Ausgangsspannung nicht weiter erh&ouml;hen oder verringern kann.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <aside class="data-panel" data-reveal>
+                    <h3>Qualit&auml;tscheck</h3>
+                    <ul class="interactive-checklist" data-checklist="home-quality">
+                        <li><label><input type="checkbox"> Aufgabenstellung nachvollziehbar</label></li>
+                        <li><label><input type="checkbox"> Formel und Dimensionierung vorhanden</label></li>
+                        <li><label><input type="checkbox"> Messwerte und Kennlinie dokumentiert</label></li>
+                        <li><label><input type="checkbox"> Ergebnis kritisch bewertet</label></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 OPV I &middot; HTBL Hollabrunn &middot; 3AHEL</p>
+            <div class="footer-links">
+                <a href="team.html">Projektteam</a>
+                <a href="ergebnisse.html#messdaten">Messdaten</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

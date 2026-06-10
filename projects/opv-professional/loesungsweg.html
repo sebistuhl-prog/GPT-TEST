@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loesungsweg der OPV-I-Uebung mit Formel, Rechner, Messablauf, Fehlersuche und Dokumentationsschritten.">
+    <meta name="theme-color" content="#0b3940">
+    <title>L&ouml;sungsweg | OPV I</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+<body data-page="loesungsweg">
+    <div class="reading-progress" data-reading-progress></div>
+    <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="OPV I Startseite">
+                <span class="brand-mark">OPV</span>
+                <span>
+                    <strong>OPV I</strong>
+                    <small>Elektroniklabor 3AHEL</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation</span>
+            </button>
+
+            <nav class="main-nav" id="site-nav" aria-label="Hauptnavigation">
+                <a href="index.html">Startseite</a>
+                <a href="aufgabenstellung.html">Aufgabenstellung</a>
+                <a class="active" href="loesungsweg.html" aria-current="page">L&ouml;sungsweg</a>
+                <a href="ergebnisse.html">Ergebnisse</a>
+                <a href="team.html">Team</a>
+            </nav>
+
+            <div class="header-actions" aria-label="Seitenwerkzeuge">
+                <button class="tool-button" type="button" data-open-search>Suchen</button>
+                <button class="tool-button" type="button" data-open-settings>Optionen</button>
+                <button class="tool-button print-only-hide" type="button" data-print>Drucken</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="content">
+        <section class="page-title">
+            <div class="container">
+                <p class="eyebrow">L&ouml;sungsweg</p>
+                <h1>Berechnen, aufbauen, messen und auswerten.</h1>
+                <p class="lead">
+                    Zuerst wurde die Verst&auml;rkerschaltung berechnet. Anschlie&szlig;end wurde sie
+                    auf dem Steckbrett aufgebaut und mit Messger&auml;ten &uuml;berpr&uuml;ft.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container feature-grid two-columns">
+                <article class="feature-card" data-reveal>
+                    <span class="feature-number">01</span>
+                    <h2>Berechnung</h2>
+                    <p>F&uuml;r einen nichtinvertierenden Verst&auml;rker gilt:</p>
+                    <p class="formula">v = 1 + R2 / R1</p>
+                    <p>Bei einem gew&uuml;nschten Verst&auml;rkungsfaktor von 2,8 wurde ein Widerstand angenommen und der zweite Widerstand passend berechnet.</p>
+                </article>
+
+                <article class="feature-card" data-reveal>
+                    <span class="feature-number">02</span>
+                    <h2>Aufbau</h2>
+                    <p>Die Schaltung wurde mit dem OPV &micro;A741 auf einem Steckbrett aufgebaut. Danach wurden Versorgungsspannung, Eingang und Ausgang kontrolliert.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-muted" id="opv-rechner">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <p class="eyebrow">Interaktiv</p>
+                    <h2>OPV-Rechner f&uuml;r den nichtinvertierenden Verst&auml;rker</h2>
+                    <p>
+                        Der Rechner zeigt sofort die Verst&auml;rkung und eine Beispiel-Ausgangsspannung.
+                        Die Werte bleiben lokal im Browser erhalten.
+                    </p>
+                </div>
+
+                <form class="calculator-card" data-opv-calculator aria-label="OPV-Rechner" data-reveal>
+                    <label>
+                        R1 in k&Omega;
+                        <input type="number" min="0.1" step="0.1" value="10" data-r1>
+                    </label>
+                    <label>
+                        R2 in k&Omega;
+                        <input type="number" min="0" step="0.1" value="18" data-r2>
+                    </label>
+                    <label>
+                        Eingang Ue in V
+                        <input type="number" step="0.1" value="2" data-ue>
+                    </label>
+                    <div class="calculator-result" aria-live="polite">
+                        <span>Verst&auml;rkung</span>
+                        <strong data-gain>2,80</strong>
+                        <span>Ausgang Ua</span>
+                        <strong data-ua>5,60 V</strong>
+                    </div>
+                    <button class="button primary" type="button" data-copy-calculation>Rechnung kopieren</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <h2>Messvorgang</h2>
+                    <ol class="timeline-list">
+                        <li><span>1</span>Versorgungsspannung des OPV einschalten.</li>
+                        <li><span>2</span>Eingangsspannung schrittweise ver&auml;ndern.</li>
+                        <li><span>3</span>Ausgangsspannung mit dem Multimeter messen.</li>
+                        <li><span>4</span>Messwerte in Excel eintragen.</li>
+                        <li><span>5</span>Kennlinie aus den Messwerten erstellen.</li>
+                        <li><span>6</span>Sinussignal mit dem Oszilloskop beobachten.</li>
+                    </ol>
+                </div>
+
+                <aside class="data-panel" data-reveal>
+                    <h3>Fehlersuche</h3>
+                    <p>
+                        Beim ersten Aufbau traten Fehler auf. Unter anderem waren VCC+ und VCC- vertauscht
+                        und die Versorgung war am Steckbrett falsch aufgebaut.
+                    </p>
+                    <p>
+                        Nach der Fehlersuche mit einem weiteren Multimeter konnte die Schaltung korrekt
+                        in Betrieb genommen werden.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <p class="eyebrow">Ablauf</p>
+                    <h2>Vom Fehler zur stabilen Messung</h2>
+                </div>
+                <div class="process-grid">
+                    <article data-reveal>
+                        <span>1</span>
+                        <h3>Planen</h3>
+                        <p>Formel anwenden, Bauteile ausw&auml;hlen, Messpunkte festlegen.</p>
+                    </article>
+                    <article data-reveal>
+                        <span>2</span>
+                        <h3>Aufbauen</h3>
+                        <p>OPV, Widerst&auml;nde und Versorgung auf dem Steckbrett verbinden.</p>
+                    </article>
+                    <article data-reveal>
+                        <span>3</span>
+                        <h3>Pr&uuml;fen</h3>
+                        <p>Versorgung und Pinbelegung kontrollieren, erst dann Eingangssignal anlegen.</p>
+                    </article>
+                    <article data-reveal>
+                        <span>4</span>
+                        <h3>Auswerten</h3>
+                        <p>Kennlinie erstellen, linearen Bereich und S&auml;ttigung beurteilen.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <p class="eyebrow">Dokumentation</p>
+                    <h2>Messprotokoll-Check</h2>
+                    <ul class="interactive-checklist" data-checklist="protocol">
+                        <li><label><input type="checkbox"> Formel und Annahmen eingetragen</label></li>
+                        <li><label><input type="checkbox"> Messwerte vollst&auml;ndig notiert</label></li>
+                        <li><label><input type="checkbox"> Screenshot oder Foto der Kennlinie gesichert</label></li>
+                        <li><label><input type="checkbox"> Fehler und Korrektur dokumentiert</label></li>
+                        <li><label><input type="checkbox"> Schlussfolgerung formuliert</label></li>
+                    </ul>
+                </div>
+                <aside class="data-panel schematic-panel" data-reveal>
+                    <h3>Schaltungsprinzip</h3>
+                    <div class="schematic" aria-label="Prinzip nichtinvertierender Verstaerker">
+                        <span>Ue</span>
+                        <span>+</span>
+                        <span>OPV</span>
+                        <span>Ua</span>
+                    </div>
+                    <p class="formula">v = 1 + R2 / R1</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 OPV I &middot; HTBL Hollabrunn &middot; 3AHEL</p>
+            <div class="footer-links">
+                <a href="ergebnisse.html">Weiter zu den Ergebnissen</a>
+                <a href="aufgabenstellung.html">Aufgabenstellung</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

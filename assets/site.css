@@ -1,0 +1,385 @@
+:root {
+    --ink: #17212f;
+    --text: #344253;
+    --muted: #697789;
+    --line: #dbe3ea;
+    --panel: #ffffff;
+    --soft: #f4f7fa;
+    --primary: #0b3940;
+    --primary-2: #145c63;
+    --accent: #d78b2a;
+    --radius: 8px;
+    --shadow: 0 18px 48px rgba(23, 33, 47, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--panel);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+}
+
+.header-inner,
+.footer-inner {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.brand span {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: #ffffff;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    color: var(--muted);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #e8f4f1;
+    color: var(--primary);
+}
+
+.hero {
+    background:
+        linear-gradient(90deg, rgba(5, 18, 25, 0.97), rgba(11, 57, 64, 0.9)),
+        #0b252b;
+    color: #ffffff;
+}
+
+.hero-grid {
+    min-height: 560px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.45fr);
+    gap: 50px;
+    align-items: center;
+    padding: 88px 0;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: #9bd0ca;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    color: inherit;
+    line-height: 1.08;
+}
+
+h1 {
+    max-width: 760px;
+    font-size: clamp(2.8rem, 7vw, 5.6rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+}
+
+h3 {
+    color: var(--ink);
+    font-size: 1.35rem;
+}
+
+p {
+    margin: 16px 0 0;
+}
+
+.lead {
+    max-width: 760px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 1.18rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.button {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    padding: 11px 18px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.button.primary {
+    background: var(--accent);
+    color: #15110a;
+}
+
+.button.secondary {
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.button.secondary-on-light {
+    border-color: var(--line);
+    color: var(--primary);
+}
+
+.hero-panel,
+.project-card,
+.info-grid article,
+.folder-tree {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.hero-panel {
+    color: var(--text);
+    padding: 28px;
+}
+
+.hero-panel h2 {
+    color: var(--ink);
+    font-size: 1.5rem;
+}
+
+dl {
+    margin: 18px 0 0;
+}
+
+dl div {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+dl div:last-child {
+    border-bottom: 0;
+}
+
+dt {
+    color: var(--muted);
+    font-weight: 800;
+}
+
+dd {
+    margin: 0;
+    color: var(--ink);
+    font-weight: 900;
+    text-align: right;
+}
+
+.section {
+    padding: 82px 0;
+}
+
+.section-muted {
+    background: var(--soft);
+}
+
+.section-heading {
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.section-heading .eyebrow {
+    color: var(--primary-2);
+}
+
+.section-heading h2,
+.split h2 {
+    color: var(--ink);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.project-card {
+    padding: 28px;
+}
+
+.project-card.featured {
+    border-top: 5px solid var(--accent);
+}
+
+.card-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--muted);
+    font-weight: 900;
+}
+
+.tag {
+    border-radius: 999px;
+    background: #e8f4f1;
+    color: var(--primary);
+    padding: 6px 10px;
+    font-size: 0.82rem;
+}
+
+.tag.muted {
+    background: var(--soft);
+    color: var(--muted);
+}
+
+ul {
+    margin: 18px 0 24px;
+    padding-left: 21px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+.folder-tree {
+    margin: 0;
+    overflow-x: auto;
+    padding: 24px;
+    color: var(--ink);
+    font-size: 1rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.info-grid article {
+    padding: 24px;
+}
+
+.site-footer {
+    background: #07181d;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-inner a {
+    color: #ffffff;
+    font-weight: 900;
+}
+
+@media (max-width: 860px) {
+    .header-inner,
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+    }
+
+    .hero-grid,
+    .project-grid,
+    .split,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        min-height: auto;
+        padding: 72px 0;
+    }
+
+    .section {
+        padding: 64px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        width: min(100% - 24px, 1120px);
+    }
+
+    h1 {
+        font-size: 2.55rem;
+    }
+
+    .hero-actions,
+    .button {
+        width: 100%;
+    }
+
+    dl div {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    dd {
+        text-align: left;
+    }
+}

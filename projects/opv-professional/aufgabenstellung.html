@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aufgabenstellung der OPV-I-Laboruebung mit Vorgaben, Teilaufgaben, Messmitteln und Bewertungskriterien.">
+    <meta name="theme-color" content="#0b3940">
+    <title>Aufgabenstellung | OPV I</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+<body data-page="aufgabenstellung">
+    <div class="reading-progress" data-reading-progress></div>
+    <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="OPV I Startseite">
+                <span class="brand-mark">OPV</span>
+                <span>
+                    <strong>OPV I</strong>
+                    <small>Elektroniklabor 3AHEL</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation</span>
+            </button>
+
+            <nav class="main-nav" id="site-nav" aria-label="Hauptnavigation">
+                <a href="index.html">Startseite</a>
+                <a class="active" href="aufgabenstellung.html" aria-current="page">Aufgabenstellung</a>
+                <a href="loesungsweg.html">L&ouml;sungsweg</a>
+                <a href="ergebnisse.html">Ergebnisse</a>
+                <a href="team.html">Team</a>
+            </nav>
+
+            <div class="header-actions" aria-label="Seitenwerkzeuge">
+                <button class="tool-button" type="button" data-open-search>Suchen</button>
+                <button class="tool-button" type="button" data-open-settings>Optionen</button>
+                <button class="tool-button print-only-hide" type="button" data-print>Drucken</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="content">
+        <section class="page-title">
+            <div class="container">
+                <p class="eyebrow">Aufgabenstellung</p>
+                <h1>Messschaltung mit definierter Verst&auml;rkung aufbauen.</h1>
+                <p class="lead">
+                    Der OPV soll als Verst&auml;rker mit dem Verst&auml;rkungsfaktor <strong>2,8</strong>
+                    betrieben werden. Danach werden Eingangsspannung und Ausgangsspannung gemessen
+                    und als Kennlinie dargestellt.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <h2>Teilaufgaben</h2>
+                    <ol class="process-list enhanced-list">
+                        <li><strong>Aufbau:</strong> OPV-Schaltung mit dem &micro;A741 aufbauen.</li>
+                        <li><strong>Dimensionierung:</strong> Widerst&auml;nde f&uuml;r den Verst&auml;rkungsfaktor berechnen.</li>
+                        <li><strong>Kennlinie:</strong> Verst&auml;rkerkennlinie mit Gleichspannung aufnehmen.</li>
+                        <li><strong>Sinus:</strong> Sinus-Eingangssignal mit 1 kHz anlegen.</li>
+                        <li><strong>Messreihen:</strong> Messungen mit 5 V und 10 V durchf&uuml;hren.</li>
+                        <li><strong>Bewertung:</strong> S&auml;ttigung und Signalverformung beurteilen.</li>
+                    </ol>
+                </div>
+
+                <aside class="data-panel" data-reveal>
+                    <h3>Wichtige Vorgaben</h3>
+                    <ul class="check-list">
+                        <li>Symmetrische Versorgung von ungef&auml;hr &plusmn;12 V.</li>
+                        <li>OPV-Versorgung vor der Eingangsspannung einschalten.</li>
+                        <li>Messwerte so w&auml;hlen, dass eine klare Kennlinie entsteht.</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <p class="eyebrow">Messziel</p>
+                    <h2>Die Theorie soll praktisch &uuml;berpr&uuml;ft werden</h2>
+                </div>
+                <div class="feature-grid two-columns">
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">A</span>
+                        <h3>Linearer Betrieb</h3>
+                        <p>Im linearen Bereich soll die Ausgangsspannung ungef&auml;hr der Eingangsspannung multipliziert mit 2,8 entsprechen.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">B</span>
+                        <h3>S&auml;ttigung</h3>
+                        <p>Au&szlig;erhalb des linearen Bereichs wird untersucht, ab welcher Ausgangsspannung der reale OPV begrenzt.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <p class="eyebrow">Laborplanung</p>
+                    <h2>Material, Sicherheit und Bewertung</h2>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">Material</span>
+                        <h3>Messmittel</h3>
+                        <p>Labornetzger&auml;t, Funktionsgenerator, Oszilloskop, Multimeter, Steckbrett, OPV &micro;A741 und Widerst&auml;nde.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">Sicher</span>
+                        <h3>Inbetriebnahme</h3>
+                        <p>Versorgung kontrollieren, Polarit&auml;t pr&uuml;fen, Eingang erst nach stabiler Versorgung anlegen.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <span class="feature-number">Doku</span>
+                        <h3>Bewertung</h3>
+                        <p>Nachvollziehbare Rechnung, saubere Messwerte, klare Kennlinie und begr&uuml;ndete Schlussfolgerung.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="container split-layout">
+                <div data-reveal>
+                    <p class="eyebrow">Checkliste</p>
+                    <h2>Vorbereitung vor der Messung</h2>
+                    <ul class="interactive-checklist" data-checklist="prep">
+                        <li><label><input type="checkbox"> Datenblatt-Pinbelegung kontrolliert</label></li>
+                        <li><label><input type="checkbox"> Versorgungsspannung am Steckbrett gemessen</label></li>
+                        <li><label><input type="checkbox"> Widerstandswerte dokumentiert</label></li>
+                        <li><label><input type="checkbox"> Oszilloskop und Multimeter vorbereitet</label></li>
+                        <li><label><input type="checkbox"> Excel-Tabelle f&uuml;r Messwerte angelegt</label></li>
+                    </ul>
+                </div>
+
+                <aside class="data-panel" data-reveal>
+                    <h3>Abnahmekriterien</h3>
+                    <dl>
+                        <div><dt>Verst&auml;rkung</dt><dd>v = 2,8</dd></div>
+                        <div><dt>Frequenz</dt><dd>1 kHz</dd></div>
+                        <div><dt>Versorgung</dt><dd>&plusmn;12 V</dd></div>
+                        <div><dt>Darstellung</dt><dd>Kennlinie</dd></div>
+                    </dl>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 OPV I &middot; HTBL Hollabrunn &middot; 3AHEL</p>
+            <div class="footer-links">
+                <a href="loesungsweg.html">Weiter zum L&ouml;sungsweg</a>
+                <a href="team.html">Projektteam</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
