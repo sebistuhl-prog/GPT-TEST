@@ -32,6 +32,8 @@ werden koennen, ohne bestehende Projekte unbeabsichtigt zu veraendern.
 |-- assets/
 |   `-- site.css
 `-- projects/
+    |-- widerstandsrechner/
+    |   `-- index.html
     |-- opv-original/
     |   `-- index.html
     `-- opv-professional/
@@ -118,5 +120,7 @@ https://sebistuhl-prog.github.io/GPT-TEST/
 
 ## Aktuelle Projekte
 
+- `projects/widerstandsrechner/`: Widerstands- und Schaltungsrechner mit
+  Zielwert-Kombinator, Direktrechnern und hilfreichen Elektronik-Links
 - `projects/opv-original/`: erste OPV-Projektwebsite
 - `projects/opv-professional/`: erweiterte professionelle OPV-Projektwebsite

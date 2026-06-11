@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interaktive Website zum Berechnen von Widerstandsnetzwerken, Zielwert-Kombinationen, Spannungsteilern, LED-Vorwiderstaenden und RC-Zeitkonstanten.">
+    <meta name="theme-color" content="#173f35">
+    <title>Widerstandsrechner | Schaltungswerkstatt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#kombinator">Zum Rechner springen</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../../index.html" aria-label="Zur Projektzentrale">
+                <span class="brand-mark">R</span>
+                <span>
+                    <strong>Widerstandsrechner</strong>
+                    <small>Schaltungswerkstatt</small>
+                </span>
+            </a>
+            <nav aria-label="Seitennavigation">
+                <a href="#kombinator">Kombinator</a>
+                <a href="#direktrechner">Rechner</a>
+                <a href="#formeln">Formeln</a>
+                <a href="#links">Links</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="workbench" id="kombinator">
+            <div class="container workbench-grid">
+                <div class="intro">
+                    <p class="eyebrow">Elektronik &middot; Widerstaende</p>
+                    <h1>Passende Widerstandswerte finden.</h1>
+                    <p class="lead">
+                        Zielwert eingeben, Normreihe oder Bauteilliste waehlen und sofort die besten Einzel-,
+                        Reihen- und Parallel-Kombinationen vergleichen.
+                    </p>
+
+                    <div class="circuit-visual" aria-label="Widerstandsnetzwerk">
+                        <div class="rail"></div>
+                        <div class="node"></div>
+                        <div class="resistor-block">
+                            <span>R1</span>
+                        </div>
+                        <div class="junction">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="parallel">
+                            <div>R2</div>
+                            <div>R3</div>
+                        </div>
+                        <div class="node"></div>
+                        <div class="rail"></div>
+                    </div>
+
+                    <div class="quick-stats" aria-label="Rechnerumfang">
+                        <div>
+                            <span>Sucharten</span>
+                            <strong>3</strong>
+                        </div>
+                        <div>
+                            <span>Normreihen</span>
+                            <strong>E12-E96</strong>
+                        </div>
+                        <div>
+                            <span>Direktrechner</span>
+                            <strong>5</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="tool-panel target-panel" id="target-form">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Zielwert-Kombinator</p>
+                        <h2>Widerstand naehern</h2>
+                    </div>
+
+                    <div class="field-grid two">
+                        <label>
+                            Zielwert
+                            <input id="target-value" type="text" inputmode="decimal" value="4,7" autocomplete="off">
+                        </label>
+                        <label>
+                            Einheit
+                            <select id="target-unit">
+                                <option value="1">&Omega;</option>
+                                <option value="1000" selected>k&Omega;</option>
+                                <option value="1000000">M&Omega;</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <fieldset class="control-group">
+                        <legend>Bauteilbasis</legend>
+                        <div class="segmented" role="group" aria-label="Bauteilbasis auswaehlen">
+                            <button class="active" type="button" data-stock="e12">E12</button>
+                            <button type="button" data-stock="e24">E24</button>
+                            <button type="button" data-stock="e96">E96</button>
+                            <button type="button" data-stock="custom">Liste</button>
+                        </div>
+                    </fieldset>
+
+                    <div class="field-grid two">
+                        <label>
+                            Ergebnisse
+                            <select id="result-count">
+                                <option value="5">Top 5</option>
+                                <option value="8" selected>Top 8</option>
+                                <option value="12">Top 12</option>
+                            </select>
+                        </label>
+                        <label>
+                            Wertebereich
+                            <select id="value-range">
+                                <option value="0.1:10000000" selected>0,1 &Omega; bis 10 M&Omega;</option>
+                                <option value="1:1000000">1 &Omega; bis 1 M&Omega;</option>
+                                <option value="10:100000">10 &Omega; bis 100 k&Omega;</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <label class="custom-field" id="custom-field">
+                        Eigene Widerstaende
+                        <textarea id="custom-values" rows="4" spellcheck="false" placeholder="100, 220, 330, 1k, 2k2, 4k7, 10k"></textarea>
+                    </label>
+
+                    <div class="button-row">
+                        <button class="button primary" type="submit">Berechnen</button>
+                        <button class="button secondary" id="load-example" type="button">Beispiel</button>
+                    </div>
+                </form>
+
+                <aside class="result-panel" aria-live="polite">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Beste Treffer</p>
+                        <h2 id="combination-summary">4,7 k&Omega; Zielwert</h2>
+                    </div>
+                    <div class="result-meter" aria-hidden="true">
+                        <span id="result-meter-fill"></span>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Schaltung</th>
+                                    <th>Werte</th>
+                                    <th>Ergebnis</th>
+                                    <th>Fehler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="combination-results"></tbody>
+                        </table>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="direktrechner">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Direktrechner</p>
+                    <h2>Schaltungen schneller pruefen</h2>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab-list" role="tablist" aria-label="Direktrechner auswaehlen">
+                        <button class="active" id="tab-network" type="button" role="tab" aria-selected="true" aria-controls="panel-network" data-tab="network">Netzwerk</button>
+                        <button id="tab-divider" type="button" role="tab" aria-selected="false" aria-controls="panel-divider" data-tab="divider">Teiler</button>
+                        <button id="tab-ohm" type="button" role="tab" aria-selected="false" aria-controls="panel-ohm" data-tab="ohm">Ohm</button>
+                        <button id="tab-led" type="button" role="tab" aria-selected="false" aria-controls="panel-led" data-tab="led">LED</button>
+                        <button id="tab-rc" type="button" role="tab" aria-selected="false" aria-controls="panel-rc" data-tab="rc">RC</button>
+                        <button id="tab-color" type="button" role="tab" aria-selected="false" aria-controls="panel-color" data-tab="color">Farbcode</button>
+                    </div>
+
+                    <div class="tab-panels">
+                        <section class="tab-panel active" id="panel-network" role="tabpanel" aria-labelledby="tab-network" data-panel="network">
+                            <div class="tool-layout">
+                                <form class="tool-panel" id="network-form">
+                                    <div class="panel-heading small">
+                                        <p class="eyebrow">Reihe oder Parallel</p>
+                                        <h3>Gesamtwiderstand</h3>
+                                    </div>
+                                    <div class="segmented" role="group" aria-label="Schaltungsart">
+                                        <button class="active" type="button" data-network-mode="series">Reihe</button>
+                                        <button type="button" data-network-mode="parallel">Parallel</button>
+                                    </div>
+                                    <div class="dynamic-list" id="network-values"></div>
+                                    <div class="button-row">
+                                        <button class="button secondary" id="add-network-value" type="button">Wert hinzufuegen</button>
+                                        <button class="button primary" type="submit">Berechnen</button>
+                                    </div>
+                                </form>
+                                <div class="output-card">
+                                    <span>Gesamtwiderstand</span>
+                                    <strong id="network-result">1,50 k&Omega;</strong>
+                                    <p id="network-detail">Reihenschaltung mit 3 Widerstaenden.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="tab-panel" id="panel-divider" role="tabpanel" aria-labelledby="tab-divider" data-panel="divider" hidden>
+                            <div class="tool-layout">
+                                <form class="tool-panel" id="divider-form">
+                                    <div class="panel-heading small">
+                                        <p class="eyebrow">Spannungsteiler</p>
+                                        <h3>Ausgangsspannung</h3>
+                                    </div>
+                                    <div class="field-grid two">
+                                        <label>U<sub>in</sub> in V <input id="divider-vin" type="text" inputmode="decimal" value="5"></label>
+                                        <label>R1 <input id="divider-r1" type="text" inputmode="decimal" value="10k"></label>
+                                        <label>R2 <input id="divider-r2" type="text" inputmode="decimal" value="4k7"></label>
+                                        <label>Last R<sub>L</sub> <input id="divider-load" type="text" inputmode="decimal" placeholder="optional"></label>
+                                    </div>
+                                </form>
+                                <div class="output-grid">
+                                    <div class="output-card">
+                                        <span>U<sub>out</sub></span>
+                                        <strong id="divider-vout">1,60 V</strong>
+                                    </div>
+                                    <div class="output-card">
+                                        <span>Teilerstrom</span>
+                                        <strong id="divider-current">0,34 mA</strong>
+                                    </div>
+                                    <div class="output-card">
+                                        <span>Lastanteil</span>
+                                        <strong id="divider-load-share">ohne Last</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="tab-panel" id="panel-ohm" role="tabpanel" aria-labelledby="tab-ohm" data-panel="ohm" hidden>
+                            <div class="tool-layout">
+                                <form class="tool-panel" id="ohm-form">
+                                    <div class="panel-heading small">
+                                        <p class="eyebrow">Ohmsches Gesetz</p>
+                                        <h3>Fehlende Groesse</h3>
+                                    </div>
+                                    <div class="field-grid two">
+                                        <label>Spannung U in V <input id="ohm-v" type="text" inputmode="decimal" value="5"></label>
+                                        <label>Strom I in A <input id="ohm-i" type="text" inputmode="decimal" placeholder="leer lassen"></label>
+                                        <label>Widerstand R <input id="ohm-r" type="text" inputmode="decimal" value="1k"></label>
+                                        <label>Leistung P in W <input id="ohm-p" type="text" inputmode="decimal" placeholder="leer lassen"></label>
+                                    </div>
+                                </form>
+                                <div class="output-grid">
+                                    <div class="output-card"><span>U</span><strong id="ohm-out-v">5,00 V</strong></div>
+                                    <div class="output-card"><span>I</span><strong id="ohm-out-i">5,00 mA</strong></div>
+                                    <div class="output-card"><span>R</span><strong id="ohm-out-r">1,00 k&Omega;</strong></div>
+                                    <div class="output-card"><span>P</span><strong id="ohm-out-p">25,00 mW</strong></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="tab-panel" id="panel-led" role="tabpanel" aria-labelledby="tab-led" data-panel="led" hidden>
+                            <div class="tool-layout">
+                                <form class="tool-panel" id="led-form">
+                                    <div class="panel-heading small">
+                                        <p class="eyebrow">LED-Vorwiderstand</p>
+                                        <h3>Strom begrenzen</h3>
+                                    </div>
+                                    <div class="field-grid two">
+                                        <label>Versorgung in V <input id="led-vs" type="text" inputmode="decimal" value="5"></label>
+                                        <label>LED-Spannung in V <input id="led-vf" type="text" inputmode="decimal" value="2"></label>
+                                        <label>LED-Anzahl <input id="led-count" type="number" min="1" step="1" value="1"></label>
+                                        <label>Strom in mA <input id="led-current" type="text" inputmode="decimal" value="20"></label>
+                                    </div>
+                                </form>
+                                <div class="output-grid">
+                                    <div class="output-card"><span>R</span><strong id="led-resistor">150 &Omega;</strong></div>
+                                    <div class="output-card"><span>P</span><strong id="led-power">60,00 mW</strong></div>
+                                    <div class="output-card"><span>Naechster E12</span><strong id="led-e12">150 &Omega;</strong></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="tab-panel" id="panel-rc" role="tabpanel" aria-labelledby="tab-rc" data-panel="rc" hidden>
+                            <div class="tool-layout">
+                                <form class="tool-panel" id="rc-form">
+                                    <div class="panel-heading small">
+                                        <p class="eyebrow">RC-Glied</p>
+                                        <h3>Zeitkonstante</h3>
+                                    </div>
+                                    <div class="field-grid two">
+                                        <label>R <input id="rc-r" type="text" inputmode="decimal" value="10k"></label>
+                                        <label>C <input id="rc-c" type="text" inputmode="decimal" value="100n"></label>
+                                    </div>
+                                </form>
+                                <div class="output-grid">
+                                    <div class="output-card"><span>&tau;</span><strong id="rc-tau">1,00 ms</strong></div>
+                                    <div class="output-card"><span>5&tau;</span><strong id="rc-5tau">5,00 ms</strong></div>
+                                    <div class="output-card"><span>f<sub>c</sub></span><strong id="rc-fc">159,15 Hz</strong></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="tab-panel" id="panel-color" role="tabpanel" aria-labelledby="tab-color" data-panel="color" hidden>
+                            <div class="tool-layout">
+                                <form class="tool-panel" id="color-form">
+                                    <div class="panel-heading small">
+                                        <p class="eyebrow">4-Band-Farbcode</p>
+                                        <h3>Wert ablesen</h3>
+                                    </div>
+                                    <div class="field-grid two">
+                                        <label>1. Ring <select id="color-band-1"></select></label>
+                                        <label>2. Ring <select id="color-band-2"></select></label>
+                                        <label>Multiplikator <select id="color-multiplier"></select></label>
+                                        <label>Toleranz <select id="color-tolerance"></select></label>
+                                    </div>
+                                </form>
+                                <div class="color-output">
+                                    <div class="resistor-preview" aria-label="Farbcode-Vorschau">
+                                        <span></span>
+                                        <i id="preview-band-1"></i>
+                                        <i id="preview-band-2"></i>
+                                        <i id="preview-multiplier"></i>
+                                        <i id="preview-tolerance"></i>
+                                        <span></span>
+                                    </div>
+                                    <div class="output-card">
+                                        <span>Widerstand</span>
+                                        <strong id="color-result">4,70 k&Omega; &plusmn;5%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-muted" id="formeln">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Formelsammlung</p>
+                    <h2>Haeufige Grundlagen</h2>
+                </div>
+                <div class="formula-grid">
+                    <article>
+                        <h3>Reihe</h3>
+                        <code>Rges = R1 + R2 + ...</code>
+                    </article>
+                    <article>
+                        <h3>Parallel</h3>
+                        <code>1/Rges = 1/R1 + 1/R2 + ...</code>
+                    </article>
+                    <article>
+                        <h3>Spannungsteiler</h3>
+                        <code>Uout = Uin * R2 / (R1 + R2)</code>
+                    </article>
+                    <article>
+                        <h3>LED</h3>
+                        <code>R = (Us - n * Uf) / I</code>
+                    </article>
+                    <article>
+                        <h3>RC</h3>
+                        <code>tau = R * C</code>
+                    </article>
+                    <article>
+                        <h3>Ohm</h3>
+                        <code>U = R * I</code>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="links">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Externe Hilfen</p>
+                    <h2>Nuetzliche Werkzeuge fuer Schaltungsaufbau</h2>
+                </div>
+                <div class="link-grid">
+                    <a class="link-card" href="https://www.qsl.net/in3otd/parallr.html" target="_blank" rel="noopener noreferrer">
+                        <span>Referenz</span>
+                        <strong>IN3OTD Resistor Calculator</strong>
+                        <p>Zielwert aus vorhandenen Widerstaenden naehern.</p>
+                    </a>
+                    <a class="link-card" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-parallel-and-series-resistor" target="_blank" rel="noopener noreferrer">
+                        <span>Rechner</span>
+                        <strong>DigiKey Reihe/Parallel</strong>
+                        <p>Gesamtwiderstand fuer Serien- und Parallelschaltungen.</p>
+                    </a>
+                    <a class="link-card" href="https://www.digikey.com/en/resources/conversion-calculators/simple-page" target="_blank" rel="noopener noreferrer">
+                        <span>Identifikation</span>
+                        <strong>Farbcode-Rechner</strong>
+                        <p>4-, 5- und 6-Band-Widerstaende dekodieren.</p>
+                    </a>
+                    <a class="link-card" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-voltage-divider" target="_blank" rel="noopener noreferrer">
+                        <span>Dimensionierung</span>
+                        <strong>Spannungsteiler</strong>
+                        <p>Teilerwerte und Ausgangsspannung pruefen.</p>
+                    </a>
+                    <a class="link-card" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-led-series-resistor" target="_blank" rel="noopener noreferrer">
+                        <span>LED</span>
+                        <strong>Vorwiderstand</strong>
+                        <p>Widerstand und Verlustleistung fuer LEDs bestimmen.</p>
+                    </a>
+                    <a class="link-card" href="https://www.falstad.com/circuit/" target="_blank" rel="noopener noreferrer">
+                        <span>Simulation</span>
+                        <strong>Falstad Circuit Simulator</strong>
+                        <p>Schaltungen im Browser aufbauen und simulieren.</p>
+                    </a>
+                    <a class="link-card" href="https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html" target="_blank" rel="noopener noreferrer">
+                        <span>SPICE</span>
+                        <strong>LTspice</strong>
+                        <p>Analoge Schaltungen mit Modellen und Kurven simulieren.</p>
+                    </a>
+                    <a class="link-card" href="https://www.kicad.org/" target="_blank" rel="noopener noreferrer">
+                        <span>Layout</span>
+                        <strong>KiCad</strong>
+                        <p>Schaltplaene zeichnen und Leiterplatten entwerfen.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Widerstandsrechner &middot; FSST</p>
+            <a href="../../index.html">Zur Projektzentrale</a>
+        </div>
+    </footer>
+</body>
+</html>
